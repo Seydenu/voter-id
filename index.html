@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<style type="text/css">
+
+		@media print {
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    header, #front {
+      height: 50%;
+    }
+
+    #back {
+      page-break-before: always;
+      height: 50%;
+    }
+
+    /* Hide the form initially when printing */
+    #form {
+      display: none;
+    }
+  }
+
+	header {
+		display: flex;
+		justify-content: space-evenly;
+		background-color: royalblue;
+		text-align: center;
+		color: white;
+		margin-bottom: 20px;
+	}
+
+	header.img {
+		background: royalblue;
+		justify-content: center;
+		align-items: center;
+		margin-top: 10px;
+	}
+
+	#front {
+		display: flex;
+		justify-content: space-evenly;
+		background-image: url(seal.jpeg);
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+
+	#form {
+		width: 400px;
+		height: 500px;
+		background-color: white;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: 15px;
+		border-radius: 10px;
+		padding-bottom: 30px;
+	}
+
+	#div1 {
+		display: flex;
+		flex-direction: column;
+	}
+
+	#div2 {
+	}
+
+	.map {
+		margin-top: 40px;
+		padding-left: 100px;
+	}
+
+	#back {
+		display: none;
+		flex-direction: column;
+		background-color: #ded6d5;
+		align-items: center;
+		margin-top: 100px;
+	}
+
+	/* Hide the form initially */
+	#form {
+		display: none;
+	}
+
+	</style>
+	<title>Voter ID</title>
+</head>
+<body>
+
+	<header>
+		<div>
+			<img width="225" src="liberia.png">
+		</div>
+
+		<div>
+			<h3>REPUBLIC OF LIBERIA</h3>
+			<h3>NATIONAL ELECTIONS COMMISSION</h3>
+			<h2>VOTER ID CARD</h2>
+		</div>
+
+		<img width="150" src="nec.png">
+	</header>
+
+	<div class="container">
+
+		<div id="front">
+
+			<div id="div1">
+				<img width="350" src="home.jpeg">
+				<img class="map" width="100"  src="flag.png">
+			</div>
+
+			<div id="div2">
+				<p>Surname</p>
+				<h5 id="display-last-name">SENEH</h5>
+
+				<p>First Name</p>
+				<h5 id="display-first-name">SEYDENU</h5>
+
+				<p>Middle Name</p>
+				<h5 id="display-middle-name">SAM</h5>
+
+				<p>County</p>
+				<h5 id="display-county">MONTSERRADO</h5>
+
+				<p>Registration Center Code</p>
+				<h5>30073</h5>
+
+				<p>Voter ID Number</p>
+				<h5>11094062871</h5>
+			</div>
+
+			<div id="div3">
+				<p>Gender</p>
+				<h5 id="display-gender">MALE</h5>
+
+				<p>Date of Birth</p>
+				<h5 id="display-date-of-birth">04/11/1997</h5>
+
+				<img width="250" src="qr.png">
+			</div>
+
+		</div>
+		<button id="show-form-button">Show Form</button>
+		<button id="print-button">Print Voter ID</button>
+
+		<div id="form">
+			<h2>Enter Voter Information</h2>
+			<form id="voter-form">
+				<label for="first-name">First Name:</label>
+				<input type="text" id="input-first-name" name="first-name" required><br><br>
+
+				<label for="middle-name">Middle Name:</label>
+				<input type="text" id="input-middle-name" name="middle-name"><br><br>
+
+				<label for="last-name">Last Name:</label>
+				<input type="text" id="input-last-name" name="last-name" required><br><br>
+
+				<label for="county">County:</label>
+				<select id="input-county" name="county">
+					<option value="Maryland County">Maryland County</option>
+					<option value="Nimba County">Nimba County</option>
+					<option value="Grand Kru County">Grand Kru County</option>
+					<option value="Grand Gedeh County">Grand Gedeh County</option>
+					<option value="Lofa County">Lofa County</option>
+					<option value="Bong County">Bong County</option>
+					<option value="Bomi County">Bomi County</option>
+					<option value="Grand Cape Mount County">Grand Cape Mount County</option>
+					<option value="River Gee County">River Gee County</option>
+					<option value="Sinoe County">Sinoe County</option>
+					<option value="Gbarpolu County">Gbarpolu County</option>
+					<option value="Margibi County">Margibi County</option>
+					<option value="Rivercess County">Rivercess County</option>
+					<option value="Grand Bassa County">Grand Bassa County</option>
+					<option value="Montserrado County">Montserrado County</option>
+				</select><br><br>
+
+				<label for="gender">Gender:</label>
+				<select id="input-gender" name="gender">
+					<option value="male">Male</option>
+					<option value="female">Female</option>
+				</select><br><br>
+
+				<label for="date-of-birth">Date of Birth:</label>
+				<input type="date" id="input-date-of-birth" name="date-of-birth" required max="2005-01-01"><br><br>
+
+				<label for="voter-id-image">Upload Voter ID Image:</label>
+				<input type="file" id="input-voter-id-image" name="voter-id-image" accept="image/*"><br><br>
+
+				<input type="submit" value="Submit">
+			</form>
+		</div>
+
+		<div id="back">
+			<header>
+			<img width="150" src="nec.png">
+		</header>
+
+		<div>
+			<h3>IF FOUND, PLEASE DELIVER TO THE NEC OFFICE OR NEAREST POLICE STATION</h3>
+		</div>
+
+		<div>
+			<h4>Being a Liberian citizen makes it your right to Register and Vote.</h4>
+		</div>
+
+		<footer>
+			
+			<div>
+				<img width="120" src="signature.jpeg">
+			</div>
+
+			<div>
+				<p>Chairperson</p>
+			</div>
+
+				<p>National Elections Commission</p>
+
+			<div>
+				<p>www.necliberia.org</p>
+			</div>
+		</footer>
+		</div>
+	</div>
+
+	<script>
+		const showFormButton = document.getElementById('show-form-button');
+		const form = document.getElementById('form');
+		const voterForm = document.getElementById('voter-form');
+		const voterIdElements = {
+			firstName: document.getElementById('display-first-name'),
+			middleName: document.getElementById('display-middle-name'),
+			lastName: document.getElementById('display-last-name'),
+			county: document.getElementById('display-county'),
+			gender: document.getElementById('display-gender'),
+			dateOfBirth: document.getElementById('display-date-of-birth')
+		};
+		const printButton = document.getElementById('print-button');
+		const frontDiv = document.getElementById('front');
+		const backDiv = document.getElementById('back');
+
+		showFormButton.addEventListener('click', function() {
+			form.style.display = 'block';
+			frontDiv.style.display = 'none'; // Hide front div when form is shown
+			backDiv.style.display = 'none'; // Hide back div when form is shown
+		});
+
+		printButton.addEventListener('click', function() {
+			form.style.display = 'none'; // Hide the form
+			frontDiv.style.display = 'block'; // Show front div for printing
+			backDiv.style.display = 'block'; // Show back div for printing
+			window.print(); // Trigger the browser's print dialog
+		});
+
+		voterForm.addEventListener('submit', function(e) {
+			e.preventDefault();
+
+			// Get user input values
+			const inputFirstName = document.getElementById('input-first-name').value;
+			const inputMiddleName = document.getElementById('input-middle-name').value;
+			const inputLastName = document.getElementById('input-last-name').value;
+			const inputCounty = document.getElementById('input-county').value;
+			const inputGender = document.getElementById('input-gender').value;
+			const inputDateOfBirth = document.getElementById('input-date-of-birth').value;
+
+			// Calculate age based on date of birth
+			const today = new Date();
+			const birthDate = new Date(inputDateOfBirth);
+			const age = today.getFullYear() - birthDate.getFullYear();
+
+			// Check if age is less than 18
+			if (age < 18) {
+				alert('You must be at least 18 years old to register.');
+				return;
+			}
+
+			// Update the voter ID elements with user input
+			voterIdElements.firstName.textContent = inputFirstName;
+			voterIdElements.middleName.textContent = inputMiddleName;
+			voterIdElements.lastName.textContent = inputLastName;
+			voterIdElements.county.textContent = inputCounty;
+			voterIdElements.gender.textContent = inputGender;
+			voterIdElements.dateOfBirth.textContent = inputDateOfBirth;
+
+			// Hide the form after submission
+			form.style.display = 'none';
+		});
+	</script>
+</body>
+</html>
